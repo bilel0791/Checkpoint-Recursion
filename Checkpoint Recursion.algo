@@ -1,0 +1,37 @@
+//procedure 
+PROCEDURE is_Palindrome(s : STRING)
+VAR
+//conteur
+    i,n:INTEGER;
+//variable pour la resultat de test    
+    result: BOOLEAN;
+    i:=0;
+    n:=s.lenght-1 ;
+
+BEGIN
+//si un caratere donc palindrome true
+    IF (n==0) THEN
+    result:=true;
+    END_IF
+/*si la premier caractere et el dernier caractere sont identique on passe au caractere suivant 
+caratere num 2 avec la caractere de l'indice n-1 
+*/ 
+    IF (s[i]==s[n]) THEN
+        i:=i+1;
+        n:=n-1;
+//appel recursive avec une parte de mots entre i et n         
+      is_Palindrome(s[i:n])  
+    ELSE
+        result:=false;
+    END_IF
+
+write(result)
+END
+ALGORITHM  Palindrome
+VAR
+wordPal :STRING;
+
+BEGIN
+read(wordPal);
+is_Palindrome(wordPal)
+END
